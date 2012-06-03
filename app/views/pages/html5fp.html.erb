@@ -1,0 +1,135 @@
+<p>Intro to HTML5 for publishers book playground</p>
+
+<canvas id="my_first_canvas" class="smily" width="200" height="225">
+  The content you put here will show up if your rendering engine doesn't support the &lt;canvas&gt; element.
+</canvas>
+
+<P></P>
+<div class="graphCalc">
+<h1>Graphing Calculator</h1>
+<p style="color: red;"><span id="status_message">Click a button below the grid to graph an equation</span></p>
+<canvas id="graph-canvas" width="400" height="400">
+ Your browser does not support the HTML 5 Canvas. 
+</canvas>
+<form>
+<input type="button" id="y_equals_x" value="y = 1x" style="color: green;"/>
+<input type="button" id="y_equals_negative_x" value="y = -1x" style="color: purple;"/>
+<input type="button" id="y_equals_two_x" value="y = 2x" style="color: blue;"/>
+<input type="button" id="y_equals_one_half_x" value="y = 0.5x" style="color: brown"/>
+<input type="button" id="reset_grid" value="Reset Grid"/>
+</form>
+</div>
+
+<P></P>
+<h1>Finger Painting</h1>
+<div class="fingerPaint">
+<canvas id="fp-canvas" width="500" height="500">
+ Your browser does not support the HTML 5 Canvas. 
+</canvas>
+</div>
+<div>
+<p>Click/tap a color or brush size below to select a color or brush size, and then drag/swipe on the canvas above to draw a picture.</p>
+Color selected: <span id="color_chosen">Black</span>
+<p>
+<input type="button" id="Red" style="background-color: red; width: 25px; height: 25px;"/>
+<input type="button" id="Orange" style="background-color: orange; width: 25px; height: 25px;"/>
+<input type="button" id="Yellow" style="background-color: yellow; width: 25px; height: 25px;"/>
+<input type="button" id="Green" style="background-color: green; width: 25px; height: 25px;"/>
+<input type="button" id="Blue" style="background-color: blue; width: 25px; height: 25px;"/>
+<input type="button" id="Purple" style="background-color: purple; width: 25px; height: 25px;"/>
+<input type="button" id="Brown" style="background-color: brown; width: 25px; height: 25px;"/>
+<input type="button" id="Black" style="background-color: black; width: 25px; height: 25px;"/>
+<input type="button" id="White" style="background-color: white; width: 25px; height: 25px;"/>
+</p>  
+<p>Brush Size
+<select id="brush_size">
+  <option value="3" id="3">3px</option>
+  <option value="7" id="7" selected>7px</option>
+  <option value="15" id="15">15px</option>
+  <option value="30" id="30">30px</option>
+</select> 
+
+</p>
+<p><input type="button" id="reset_image" value="Reset Drawing"/></p>
+</div>
+
+<p>
+<div id=geolocated>
+<h1>A Geolocated Tale</h1>
+<p>It was your typical <em id="weather_temp">LOADING
+ TEMPERATURE</em>&#xb0;F day in <em id="city">LOADING CITY NAME</em> when
+Muffin Bukowski was roused from decadent slumber by the
+ear-throttling shriek of an unidentified avian trespassing on the
+grounds of her otherwise-serene home, clearly violating Section I,
+Article 246 of her condo documents.</p>
+
+<p>Groggily stumbling to her bedroom window, Muffin peered
+through the pristine glass out at <em id="street_address">LOADING STREET
+NAME</em>.</p>
+
+<p>&#8220;Are my eyes deceiving me?&#8221; Muffin muttered as she lightly
+  rapped her knuckles against her forehead, unable to process the
+  miraculous scene unfolding before her...</p> 
+</div>
+</p>
+
+<p>
+<div id="myGlossary">
+<h1>Digital Publishing Mini-Glossary</h1>
+<p>Click the <span class="play-button">&#x25b6;</span> button to hear the
+  pronunciation of a term</p>
+<!--Audio content -->
+<audio id="epub">
+<source src="/audio/epub.wav" type="audio/wav"/>
+<source src="/audio/epub.mp3" type="audio/mp3"/>
+<source src="/audio/epub.ogg" type="audio/ogg"/>
+<em>(Sorry, &lt;audio&gt; element not supported in your
+  browser/ereader.)</em>
+</audio>
+<audio id="mobi">
+<source src="/audio/mobi.wav" type="audio/wav"/>
+<source src="/audio/mobi.mp3" type="audio/mp3"/>
+<source src="/audio/mobi.ogg" type="audio/ogg"/>
+</audio>
+<audio id="pdf">
+<source src="/audio/pdf.wav" type="audio/wav"/>
+<source src="/audio/pdf.mp3" type="audio/mp3"/>
+<source src="/audio/pdf.ogg" type="audio/ogg"/>
+</audio>
+<div class="glossary">
+<dl>
+<dt>EPUB <input type="submit" class="play-button" id="epub_button" value="&#x25b6;"/></dt>
+<dd>An open standard for reflowable ebook content created and maintained by the <a
+  href="http://idpf.org/">International Digital Publishing Forum
+  (IDPF)</a> based on HTML, CSS, and XML technologies. Version 3.0 of
+  EPUB will support HTML5.</dd>
+<dt>Mobipocket <input type="submit" class="play-button" id="mobi_button" value="&#x25b6;"/></dt>
+<dd>A proprietary standard for reflowable ebook content developed by <a
+  href="http://en.wikipedia.org/wiki/Mobipocket">Mobipocket SA</a>,
+  and used by Amazon on its hardware and software Kindle
+  platforms.</dd>
+<dt>Portable Document Format (PDF) <input type="submit" class="play-button" id="pdf_button" value="&#x25b6;"/></dt>
+<dd>An open standard for page-based (non-reflowable) electronic documents created by Adobe Systems
+  that has been in use since the 1990s. Many ereader devices support
+  PDF files, as well as EPUB or Mobi.</dd>
+</dl>
+</div> 
+  
+</div> <!--end myGlossary wrapper -->
+</p>
+
+<p>
+<div id="myVideo">
+<h1>HTML5 Video Illustrating HTML5 Canvas</h1>
+<p>Check out this excerpt from <a
+href="http://bitly.com/html5canvasvideo"><em>Client-side Graphics
+with HTML5 Canvases</em></a> showing the retro arcade game Asteroids implemented
+using HTML5 Canvas.</p>
+<video id="asteroids_video" width="480" height="270" controls="true">
+<source src="/video/html5_asteroids.mp4" type="video/mp4"/>
+<source src="/video/html5_asteroids.ogg" type="video/ogg"/>
+<em>(Sorry, &lt;video&gt; element not supported in your
+  browser/ereader, so you will not be able to watch this video.)</em>
+</video>
+</div>
+</p>
