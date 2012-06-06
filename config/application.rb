@@ -32,7 +32,12 @@ module Vorkosigan
 
     # JavaScript files you want as :defaults (application.js is always included).
     config.action_view.javascript_expansions[:html5fp] = %w(modernizr-1.6.min jquery-1.6.2.min html5fp finger_painting geolocation-story glossary graph_calc smily)
-      #config.action_view.javascript_expansions[:prototype] = ['prototype', 'effects', 'dragdrop', 'controls']
+    config.action_view.javascript_expansions[:cssgameengine] = %w(CSS_Game/ENGINE/controls-min.js CSS_Game/ENGINE/game-min.js)
+    config.action_view.javascript_expansions[:gmp] = %w()
+    config.action_view.javascript_expansions[:jaws] = %w()
+    config.action_view.javascript_expansions[:entityjs] = %w()
+    config.action_view.javascript_expansions[:impactjs] = %w()
+    ###config.action_view.javascript_expansions[:prototype] = ['prototype', 'effects', 'dragdrop', 'controls']
     
 
     # Configure the default encoding used in templates for Ruby 1.9.

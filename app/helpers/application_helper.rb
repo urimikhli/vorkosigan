@@ -18,6 +18,16 @@ module ApplicationHelper
     #this tag :htmlfp is set in application.rb javascript_expansions field 
     if @title.eql?("HTML5 for Publishers") 
        :html5fp
+    elsif  @title.eql?("CSSGameEngine") 
+      :cssgameengine
+    elsif  @title.eql?("GMP") 
+      :gmp
+    elsif  @title.eql?("JawsJS") 
+      :jaws
+    elsif  @title.eql?("EntityJS") 
+      :entityjs
+    elsif  @title.eql?("ImpactJS") 
+      :impactjs
     else #the :defaults are already being set
        "" 
     end
