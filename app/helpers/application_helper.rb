@@ -14,7 +14,7 @@ module ApplicationHelper
     image_tag("logo.png", :alt => "sample app", :class => "round")
   end
 
-  def jsapps 
+  def appTag 
     #this tag :htmlfp is set in application.rb javascript_expansions field 
     if @title.eql?("HTML5 for Publishers") 
        :html5fp

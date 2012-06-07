@@ -1,14 +1,14 @@
 Vorkosigan::Application.routes.draw do
 
-  get "games/cssgameengine"
+  match "/cssgameengine", :to => 'games#cssgameengine'
 
-  get "games/gmp"
+  match "/gmp",:to => 'games#gmp'
 
-  get "games/jaws"
+  match "/jaws", :to => 'games#jaws' 
 
-  get "games/entityjs"
+  match "/entityjs", :to => 'games#entityjs'
 
-  get "games/impactjs"
+  match "/impactjs", :to => 'games#impactjs'
 
   get "users/new"
 

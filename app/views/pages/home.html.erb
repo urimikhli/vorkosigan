@@ -3,9 +3,14 @@
 <p>Home page for RoR server for HTML5 game engines</p>
 
 <p>
-  <li><%= image_tag("/CSS_Game/icon.gif", :alt => "CSS Game engine/non integrated app", :class => "round") %>
-    <%= link_to "The CSS game engine.", '/CSS_Game/' %> Not integrated into RoR. Just sitting in my public folder
+  <li>
+    <%= image_tag("/javascripts/CSS_Game/icon.gif", :alt => "CSS Game engine/non integrated app", :class => "round") %>
+    <%= link_to "The CSS game engine.", cssgameengine_path %> 
   </li>
   
+  <li>
+    <%= image_tag("/stylesheets/GMP/favicon.ico", :alt => "GMP Game engine", :class => "round") %>
+    <%= link_to "GMP space invaders", gmp_path %>
+  </li>
 </p>
 
