@@ -33,4 +33,10 @@ module ApplicationHelper
     end
   end
 
+  def bodyMods
+    if  @title.eql?("CSSGameEngine")
+      @bodyMods = %(onLoad="ENGINE.init('Psylocke')" onKeyPress="checkEnter(event)" )
+    end
+  end
+
 end 
