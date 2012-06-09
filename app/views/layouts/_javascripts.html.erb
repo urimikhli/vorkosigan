@@ -1,4 +1,4 @@
     <%= javascript_include_tag :defaults %>
     
-    <%= javascript_include_tag appTag if not appTag.eql?("") do appTag end %>
+    <%= javascript_include_tag appTag if not appTag.eql?("") and @renderJSinBody.nil? do appTag end %>
 

@@ -5,6 +5,7 @@ class GamesController < ApplicationController
 
   def gmp
      @title = "GMP"
+     @renderJSinBody = true
   end
 
   def jaws
