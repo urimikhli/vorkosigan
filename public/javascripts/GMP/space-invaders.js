@@ -2,7 +2,7 @@ G.F.loadMain = function () {
     
     this.AI = G.F.mainAI;
 
-    G.KB.addKeys('LEFT','RIGHT','F');
+    G.KB.addKeys('LEFT','RIGHT','UP','DOWN','SPACE');
     
     G.setState({ targetCount: 10, targetLetters: ['S','P', 'A','C','E','I','N','V','A','D'] });
     
@@ -17,12 +17,17 @@ G.F.loadMain = function () {
     
     G.makeGob('help',G.O.viewport)
      .setVar({x:0, y:265, w:200, h:60})
-     .setSrc('Press <strong>F</strong> to fire<br /><strong>ARROWS</strong> to move')
+     .setSrc('Press <strong>SPACE</strong> to fire<br /><strong>ARROWS</strong> to move')
      .turnOn();
     
     G.makeGob('bullet',G.O.viewport)
      .setVar({x:-100, y:-100, w:4, h:12, AI:G.F.bulletAI})
      .setState({firing:0})
+     .turnOn();
+
+    G.makeGob('bullet2',G.O.viewport)
+     .setVar({x:-100, y:-100, w:4, h:12, AI:G.F.bullet2AI})
+     .setState({firing:0,fireDelay:0})
      .turnOn();
 
     G.makeGob('explosion',G.O.viewport)
@@ -50,8 +55,10 @@ G.F.mainAI = function () {
 
     // move/fire bullet
     G.O.bullet.AI();
+    // move/fire bullet2
+    G.O.bullet2.AI();
 
-    // animate explosion
+    // animate explosion G.O.bullet2.S.fireDelay++;
     G.O.explosion.AI();
 
     // trigger explosion if the bullet hits a target.
@@ -67,9 +74,17 @@ G.F.mainAI = function () {
             G.S.targetCount--;
 
         }
+        if (G.O.bullet2.checkIntersection(target) ) {
+
+            G.O.bullet2.setState({firing:0, fireDelay:0}).setVar({x:-100,y:-100}).draw();
+            target.turnOff();
+            G.O.explosion.setVar({x: target.x + 6, y:target.y + 8}).AI('reset').turnOn();
+            G.S.targetCount--;
+
+        }
+
 
     }
-
     // reset targets after all have been exploded
     if (G.S.targetCount < 1 && !G.O.explosion.on) {
 
@@ -100,22 +115,39 @@ G.F.shipAI = function () {
         }
     }
 
+    // move the ship up
+    else if (G.KB.keys.UP.isPressed) {
+      if (t.y > 150) {
+        t.setVar({y:t.y-10}).draw();
+      }
+    }
+
+    // move ship down
+    else if (G.KB.keys.DOWN.isPressed) {
+      if (t.y < 220 ) {
+        t.setVar({y:t.y+10}).draw();
+      }
+    }
     return t;
 };
 G.F.bulletAI = function () {
 
     var t=this;
 
+    
+
     // start firing from nose of ship
-    if (G.KB.keys.F.isPressed && !t.S.firing ) {
+    if (G.KB.keys.SPACE.isPressed && !t.S.firing ) {
         t.S.firing=1;
         t.setVar({x:G.O.ship.x + 11,y: G.O.ship.y+10}).draw();
     }
 
     // move the bullet up the screen
     if (t.S.firing) {
+      G.O.bullet2.S.fireDelay++;
+      G.O.help.setSrc("delay is:"+G.O.bullet2.S.fireDelay+" bullet2 firing:"+G.O.bullet2.S.firing).turnOn();
         if (t.y > 5) {
-            t.setVar({y:t.y-18}).draw();
+            t.setVar({y:t.y-15}).draw();
         }
 
         else  {
@@ -126,6 +158,34 @@ G.F.bulletAI = function () {
     return t;
 
 }; 
+
+//second bullet AI
+G.F.bullet2AI = function () {
+
+    var t=this;
+
+    // start firing from nose of ship
+    if (G.KB.keys.SPACE.isPressed && !t.S.firing && G.O.bullet.S.firing && G.O.bullet2.S.fireDelay > 5) {
+        t.S.firing=1;
+        t.S.fireDelay =0;
+        t.setVar({x:G.O.ship.x + 11,y: G.O.ship.y+10}).draw();
+    }
+
+    // move the bullet up the screen
+    if (t.S.firing) {
+        if (t.y > 5) {
+            t.setVar({y:t.y-15}).draw();
+        }
+
+        else  {
+            t.setState({firing:0,fireDelay:0}).setVar({x:-100,y:-100}).draw();
+        }
+    }
+
+    return t;
+
+}; 
+
 G.F.explosionAI = function  (cmd) {
     
     var t=this, F;
