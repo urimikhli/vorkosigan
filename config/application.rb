@@ -31,17 +31,18 @@ module Vorkosigan
     # config.i18n.default_locale = :de
 
     # JavaScript files you want as :defaults (application.js is always included).
-    config.action_view.javascript_expansions[:html5fp] = %w(modernizr-1.6.min jquery-1.6.2.min html5fp finger_painting geolocation-story glossary graph_calc smily)
+    config.action_view.javascript_expansions[:html5fp] = %w(modernizr-1.6.min jquery-1.6.2.min html5fp html5fp/finger_painting html5fp/geolocation-story html5fp/glossary html5fp/graph_calc html5fp/smily)
+    config.action_view.javascript_expansions[:fingerpaint]= %w(modernizr-1.6.min html5_apps/finger_paint.js)
     config.action_view.javascript_expansions[:cssgameengine] = %w(play_bg_audio.js CSS_Game/ENGINE/game-min CSS_Game/ENGINE/controls-min)
     config.action_view.javascript_expansions[:gmp] = %w(GMP/gmp-engine.1.7.4 GMP/space-invaders)
-
     config.action_view.javascript_expansions[:jaws] = %w()
     config.action_view.javascript_expansions[:entityjs] = %w()
     config.action_view.javascript_expansions[:impactjs] = %w()
     ###config.action_view.javascript_expansions[:prototype] = ['prototype', 'effects', 'dragdrop', 'controls']
-    
-    config.action_view.stylesheet_expansions[:gmp] = %w(GMP/space-invaders)
+    config.action_view.stylesheet_expansions[:html5fp] = %w()
+    config.action_view.stylesheet_expansions[:fingerpaint]= %w()
     config.action_view.stylesheet_expansions[:cssgameengine] = %w(CSS_Game/engine-min)
+    config.action_view.stylesheet_expansions[:gmp] = %w(GMP/space-invaders)
     config.action_view.stylesheet_expansions[:jaws] = %w()
     config.action_view.stylesheet_expansions[:entityjs] = %w()
     config.action_view.stylesheet_expansions[:impactjs] = %w()

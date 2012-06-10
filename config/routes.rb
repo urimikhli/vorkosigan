@@ -1,5 +1,7 @@
 Vorkosigan::Application.routes.draw do
 
+  match "/fingerpaint", :to => 'html5_apps#fingerpaint'
+
   match "/cssgameengine", :to => 'games#cssgameengine'
 
   match "/gmp",:to => 'games#gmp'

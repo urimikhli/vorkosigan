@@ -4,7 +4,7 @@ describe UsersController do
     render_views
 
   before(:each) do
-    @base_title = "HTML5/Javascript Games Development"
+    @base_title = "HTML5/Javascript Development"
   end
   
   describe "GET 'new'" do
