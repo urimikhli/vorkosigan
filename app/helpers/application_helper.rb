@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def logo
-    image_tag("logo.png", :alt => "sample app", :class => "round")
+    image_tag("htmlror.png", :alt => "sample app", :class => "round")
   end
 
   # there must be a both a js_expansion and a style_sxpansion :project file in application.rb

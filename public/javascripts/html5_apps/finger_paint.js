@@ -123,6 +123,9 @@ function fingerPaint(theCanvas,context) {
 //	}
 //  }
 
+    //take an array of colors and return a color
+    //advance the index to the next color so that
+    //color is returned the next time the function is called
     function cycle_colors(colorArray) {
 	var num_colors = colorArray.length;
 	var color = 'Black'; // just so there is a default color
