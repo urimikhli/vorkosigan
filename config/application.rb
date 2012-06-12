@@ -40,7 +40,7 @@ module Vorkosigan
     config.action_view.javascript_expansions[:impactjs] = %w()
     ###config.action_view.javascript_expansions[:prototype] = ['prototype', 'effects', 'dragdrop', 'controls']
     config.action_view.stylesheet_expansions[:html5fp] = %w()
-    config.action_view.stylesheet_expansions[:fingerpaint]= %w()
+    config.action_view.stylesheet_expansions[:fingerpaint]= %w(fingerpaint/fingerpaint)
     config.action_view.stylesheet_expansions[:cssgameengine] = %w(CSS_Game/engine-min)
     config.action_view.stylesheet_expansions[:gmp] = %w(GMP/space-invaders)
     config.action_view.stylesheet_expansions[:jaws] = %w()

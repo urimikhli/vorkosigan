@@ -21,6 +21,7 @@ function myCanvasApp(){
 var rainbowColors = ['Red','Orange','Yellow','Green','Blue','Purple'];
 var patrioticColors = ['Red','White','Blue'];
 var color_index=0;
+var clipboard_index=1;
 
 function fingerPaint(theCanvas,context) {
 
@@ -37,8 +38,11 @@ function fingerPaint(theCanvas,context) {
   var resetButton = document.getElementById("reset_image");
   var rainbowButton = document.getElementById("Rainbow");
   var patrioticButton = document.getElementById("Patriotic");
-   var brush =  document.getElementById("brush_size");
+  var saveButton = document.getElementById("saveImage");
+  var brush =  document.getElementById("brush_size");
   var brushSize =  brush.value;
+  var canvas_image = document.getElementById("canvasImg"+clipboard_index);
+
 
         redButton.addEventListener('click', colorPressed, false);
         orangeButton.addEventListener('click', colorPressed, false);
@@ -53,6 +57,9 @@ function fingerPaint(theCanvas,context) {
         resetButton.addEventListener('click', resetPressed, false);
 	rainbowButton.addEventListener('click', colorPressed, false);
 	patrioticButton.addEventListener('click', colorPressed, false);
+	saveButton.addEventListener('click', getImagedata, false);
+
+        //canvas_image.addEventListener('contextmenu', getImagedata, false);
 	drawScreen();
 
     function drawScreen() {
@@ -153,6 +160,25 @@ function fingerPaint(theCanvas,context) {
     function resetPressed(e) {
         theCanvas.width = theCanvas.width; // Reset grid
         drawScreen();
+    }
+
+    function getImagedata(e) {
+            // save canvas image as data url (png format by default)
+            var dataURL = theCanvas.toDataURL();
+ 
+            // set canvasImg image src to dataURL
+            // so it can be saved as an image
+           
+	   
+       	if (clipboard_index >4){
+	    if (confirm("click ok to replace the first image in the clipboard")){
+		clipboard_index =1;
+	    }
+	}
+	canvas_image = document.getElementById("canvasImg"+clipboard_index);
+	canvas_image.src = dataURL;
+	clipboard_index++;
+
     }
 }
 
