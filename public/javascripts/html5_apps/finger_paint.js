@@ -173,12 +173,15 @@ function fingerPaint(theCanvas,context) {
        	if (clipboard_index >4){
 	    if (confirm("click ok to replace the first image in the clipboard")){
 		clipboard_index =1;
+		canvas_image = document.getElementById("canvasImg"+clipboard_index);
+		canvas_image.src = dataURL;
+		clipboard_index++;
 	    }
+	} else {
+	    canvas_image = document.getElementById("canvasImg"+clipboard_index);
+	    canvas_image.src = dataURL;
+	    clipboard_index++;
 	}
-	canvas_image = document.getElementById("canvasImg"+clipboard_index);
-	canvas_image.src = dataURL;
-	clipboard_index++;
-
     }
 }
 
