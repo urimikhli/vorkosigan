@@ -1,23 +1,10 @@
 <h1>Finger Painting</h1>
 <div class="fingerPaint">
-<canvas id="fp-canvas" width="500" height="500">
+<canvas id="fp-canvas" width="450" height="450">
  Your browser does not support the HTML 5 Canvas. 
 </canvas>
 </div>
-<div id="imageClipboard" class="clipboard pull-right pull-top">
-  <p></p>
-<br/>
-  <img id="canvasImg1" name="canvasimage1" alt=" " width=50 height=50>
-  <img id="canvasImg2" name="canvasimage2" alt=" " width=50 height=50>
-  <img id="canvasImg3" name="canvasimage3" alt=" " width=50 height=50>    
-  <img id="canvasImg4" name="canvasimage4" alt=" " width=50 height=50>
 
-
-  <span style="text-align: bottom; float: right"> Right click image in clipboard to save</span>
-</div>
-
-<div>
-  <p></p>
 <div id="help text">
   <p>Click/tap a color or brush size below to select a color or brush size,<br/> and then drag/swipe on the canvas above to draw a picture.</p>
 </div>
@@ -37,7 +24,8 @@ Color selected: <span id="color_chosen">Black</span>
 <input type="button" id="Patriotic" style="background: url(/images/usflag.png);width: 25px; height: 25px;"/>
 
 </p>  
-<p>Brush Size
+
+Brush Size
 <select id="brush_size">
   <option value="3" id="3">3px</option>
   <option value="7" id="7" selected>7px</option>
@@ -45,8 +33,21 @@ Color selected: <span id="color_chosen">Black</span>
   <option value="30" id="30">30px</option>
 </select> 
 
-</p>
-<p><input type="button" id="saveImage" value="Clipboard Image"/></p>
+<div id="imageClipboard" class="clipboard pull-right pull-top">
+  <p></p>
+<br/>
+  <img src="" id="canvasImg1" name="canvasimage1.png" alt=" " width=50 height=50>
+  <img src="" id="canvasImg2" name="canvasimage2" alt=" " width=50 height=50>
+  <img src="" id="canvasImg3" name="canvasimage3" alt=" " width=50 height=50>    
+  <img src="" id="canvasImg4" name="canvasimage4" alt=" " width=50 height=50>
+
+
+  <span> Right click or drag image in clipboard to save</span>
+  <p><input type="button" id="saveImage" value="Clipboard Image" /></p>
+</div>
+
+<div>
+  <p></p>
 <p><input type="button" id="reset_image" value="Reset Drawing"/></p>
 
 <p></p>

@@ -164,8 +164,9 @@ function fingerPaint(theCanvas,context) {
 
     function getImagedata(e) {
             // save canvas image as data url (png format by default)
-            var dataURL = theCanvas.toDataURL();
- 
+            var dataURL = theCanvas.toDataURL("image/png");
+	    //theCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+	    //dataURL = "name:canvas.png;" + dataURL;
             // set canvasImg image src to dataURL
             // so it can be saved as an image
            
