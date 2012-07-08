@@ -1,18 +1,6 @@
 Vorkosigan::Application.routes.draw do
 
-  match "/fingerpaint", :to => 'html5_apps#fingerpaint'
-
-  match "/cssgameengine", :to => 'games#cssgameengine'
-
-  match "/gmp",:to => 'games#gmp'
-
-  match "/jaws", :to => 'games#jaws' 
-
-  match "/entityjs", :to => 'games#entityjs'
-
-  match "/impactjs", :to => 'games#impactjs'
-
-  get "users/new"
+  resources :users
 
   root :to => "pages#home"
   #match '/', :to => 'pages#home'
@@ -23,7 +11,13 @@ Vorkosigan::Application.routes.draw do
   match '/html5fp', :to => 'pages#html5fp'
   match '/signup', :to => 'users#new'
 
- 
+  match "/fingerpaint", :to => 'html5_apps#fingerpaint'
+  match "/cssgameengine", :to => 'games#cssgameengine'
+  match "/gmp",:to => 'games#gmp'
+  match "/jaws", :to => 'games#jaws' 
+  match "/entityjs", :to => 'games#entityjs'
+  match "/impactjs", :to => 'games#impactjs'
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
