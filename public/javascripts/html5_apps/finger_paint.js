@@ -39,6 +39,7 @@ function fingerPaint(theCanvas,context) {
   var rainbowButton = document.getElementById("Rainbow");
   var patrioticButton = document.getElementById("Patriotic");
   var saveButton = document.getElementById("saveImage");
+  var loadButton = document.getElementById("loadImage");
   var brush =  document.getElementById("brush_size");
   var brushSize =  brush.value;
   var canvas_image = document.getElementById("canvasImg"+clipboard_index);
@@ -58,6 +59,7 @@ function fingerPaint(theCanvas,context) {
 	rainbowButton.addEventListener('click', colorPressed, false);
 	patrioticButton.addEventListener('click', colorPressed, false);
 	saveButton.addEventListener('click', getImagedata, false);
+	loadButton.addEventListener('click', loadImageFromClipboard, false);
 
         //canvas_image.addEventListener('contextmenu', getImagedata, false);
 	drawScreen();
@@ -169,7 +171,6 @@ function fingerPaint(theCanvas,context) {
 	    //dataURL = "name:canvas.png;" + dataURL;
             // set canvasImg image src to dataURL
             // so it can be saved as an image
-           
 	   
        	if (clipboard_index >4){
 	    if (confirm("click ok to replace the first image in the clipboard")){
@@ -183,6 +184,12 @@ function fingerPaint(theCanvas,context) {
 	    canvas_image.src = dataURL;
 	    clipboard_index++;
 	}
+    }
+
+    function loadImageFromClipboard(e) {
+    }
+    
+    function loadImageFromDisk(e) {
     }
 }
 
