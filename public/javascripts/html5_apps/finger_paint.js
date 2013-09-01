@@ -187,6 +187,14 @@ function fingerPaint(theCanvas,context) {
     }
 
     function loadImageFromClipboard(e) {
+      canvas_image = document.getElementById("canvasImg1");
+
+      newImage = new Image();
+      newImage.src = canvas_image.src;
+      context.drawImage(newImage, 0, 0);
+
+      //theCanvas 
+
     }
     
     function loadImageFromDisk(e) {
