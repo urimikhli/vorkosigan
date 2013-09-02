@@ -174,13 +174,17 @@ function fingerPaint(theCanvas,context) {
 
     function highlight_clipbox(clip_id) {
       //highlight the clipboard image
+      var clip = document.getElementById("clipImage" + clip_id);
+      //alert(clip.border);
+      clip.border = '3px';
     }
 
     function pickClipImage(e) {
       var clip_selected = e.target;
       var clip_id =  clip_selected.getAttribute('id');
       selcted_clip_image_id = clip_id;
-      highlight_clipbox(clip_id);
+      var id_length = clip_id.length;
+      highlight_clipbox(clip_id.substr(id_length-1,1));
     }
      
     function getImagedata(e) {
