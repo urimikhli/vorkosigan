@@ -22,6 +22,7 @@ var rainbowColors = ['Red','Orange','Yellow','Green','Blue','Purple'];
 var patrioticColors = ['Red','White','Blue'];
 var color_index=0;
 var clipboard_index=1;
+var selcted_clip_image_id="canvasImg1";
 
 function fingerPaint(theCanvas,context) {
 
@@ -43,6 +44,10 @@ function fingerPaint(theCanvas,context) {
   var brush =  document.getElementById("brush_size");
   var brushSize =  brush.value;
   var canvas_image = document.getElementById("canvasImg"+clipboard_index);
+  var clip1 = document.getElementById("canvasImg1");
+  var clip2 = document.getElementById("canvasImg2");
+  var clip3 = document.getElementById("canvasImg3");
+  var clip4 = document.getElementById("canvasImg4");
 
 
         redButton.addEventListener('click', colorPressed, false);
@@ -60,7 +65,10 @@ function fingerPaint(theCanvas,context) {
 	patrioticButton.addEventListener('click', colorPressed, false);
 	saveButton.addEventListener('click', getImagedata, false);
 	loadButton.addEventListener('click', loadImageFromClipboard, false);
-
+        clip1.addEventListener('click', pickClipImage, false);
+        clip2.addEventListener('click', pickClipImage, false);
+        clip3.addEventListener('click', pickClipImage, false);
+        clip4.addEventListener('click', pickClipImage, false);
         //canvas_image.addEventListener('contextmenu', getImagedata, false);
 	drawScreen();
 
@@ -164,6 +172,17 @@ function fingerPaint(theCanvas,context) {
         drawScreen();
     }
 
+    function highlight_clipbox(clip_id) {
+      //highlight the clipboard image
+    }
+
+    function pickClipImage(e) {
+      var clip_selected = e.target;
+      var clip_id =  clip_selected.getAttribute('id');
+      selcted_clip_image_id = clip_id;
+      highlight_clipbox(clip_id);
+    }
+     
     function getImagedata(e) {
             // save canvas image as data url (png format by default)
             var dataURL = theCanvas.toDataURL("image/png");
@@ -187,7 +206,7 @@ function fingerPaint(theCanvas,context) {
     }
 
     function loadImageFromClipboard(e) {
-      canvas_image = document.getElementById("canvasImg1");
+      canvas_image = document.getElementById(selcted_clip_image_id);
 
       newImage = new Image();
       newImage.src = canvas_image.src;
