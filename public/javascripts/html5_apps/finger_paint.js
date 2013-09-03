@@ -172,9 +172,9 @@ function fingerPaint(theCanvas,context) {
         drawScreen();
     }
 
-    function highlight_clipbox(clip_id) {
+    function highlight_clipbox(clip_index) {
       //highlight the clipboard image
-      var clip = document.getElementById("clipImage" + clip_id);
+      var clip = document.getElementById("clipSpan" + clip_index);
       //alert(clip.border);
       clip.border = '3px';
     }
