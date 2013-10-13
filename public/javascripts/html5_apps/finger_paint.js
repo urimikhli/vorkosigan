@@ -49,7 +49,6 @@ function fingerPaint(theCanvas,context) {
   var clip3 = document.getElementById("canvasImg3");
   var clip4 = document.getElementById("canvasImg4");
 
-
         redButton.addEventListener('click', colorPressed, false);
         orangeButton.addEventListener('click', colorPressed, false);
         yellowButton.addEventListener('click', colorPressed, false);
@@ -172,12 +171,8 @@ function fingerPaint(theCanvas,context) {
         drawScreen();
     }
 
-    function highlight_clipbox(clip_index) {
-      //highlight the clipboard image
-      //var clip = document.getElementById("clipSpan" + clip_index);
-      alert($("#clipSpan1"));
-      $("#clipSpan1").addClass('grey');
-      //clip.border = '3px';
+    function highlightclipbox(clip_index) {
+      jQuery("#clipSpan"+clip_index).toggleClass("grey");
     }
 
     function pickClipImage(e) {
@@ -185,7 +180,7 @@ function fingerPaint(theCanvas,context) {
       var clip_id =  clip_selected.getAttribute('id');
       selcted_clip_image_id = clip_id;
       var id_length = clip_id.length;
-      highlight_clipbox(clip_id.substr(id_length-1,1));
+      highlightclipbox(clip_id.substr(id_length-1,1));
     }
      
     function getImagedata(e) {
