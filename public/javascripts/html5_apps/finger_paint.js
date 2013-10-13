@@ -174,9 +174,10 @@ function fingerPaint(theCanvas,context) {
 
     function highlight_clipbox(clip_index) {
       //highlight the clipboard image
-      var clip = document.getElementById("clipSpan" + clip_index);
-      //alert(clip.border);
-      clip.border = '3px';
+      //var clip = document.getElementById("clipSpan" + clip_index);
+      alert($("#clipSpan1"));
+      $("#clipSpan1").addClass('grey');
+      //clip.border = '3px';
     }
 
     function pickClipImage(e) {
