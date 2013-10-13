@@ -3,8 +3,11 @@
 
   
 }
-
+.white {
+  background-color: white;
+  width:50px;
+}
 .grey {
-  background: grey;
-  border-top: .5em solid grey;
+  background-color: grey;
+  width:50px;
 }
