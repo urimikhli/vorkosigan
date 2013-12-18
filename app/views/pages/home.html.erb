@@ -1,7 +1,10 @@
 
 <h1>HTML5/Javascript Development Home</h1>
-<p></p>
- <%= link_to "Sign Up Now", signup_path, :class=>"signup_button round" %> 
+<p align="center">
+<a href="http://stackoverflow.com/users/2437923/uri-mikhli">
+<img src="http://stackoverflow.com/users/flair/2437923.png?theme=hotdog" width="208" height="58" alt="profile for Uri Mikhli at Stack Overflow, Q&A for professional and enthusiast programmers" title="profile for Uri Mikhli at Stack Overflow, Q&A for professional and enthusiast programmers">
+</a>
+</p>
   HTML5 game engines
   <li>
     <%= image_tag("/javascripts/CSS_Game/icon.gif", :alt => "CSS Game engine/non integrated app", :class => "round") %>
@@ -19,4 +22,25 @@
   <%= image_tag("/images/fpicon-sm.png", :alt => "Finger Paint", :class => "round") %>
   <%= link_to "Finger paint app", fingerpaint_path %>
 </li>
+
+
+<form name="calculator" id="calculator">
+<input label="length" type="number" id="a"> 
+<input label="width" type="number" id="b">
+<input label="height" type="number" id="c">
+<input type=Button value=Calculate onClick="gallons();">
+<input name="OUTPUT" id="output" SIZE="4" maxlength="6" >
+</form>
+<script language="JavaScript" type="text/javascript">
+<!--
+function gallons() {
+var LENGTH = document.calculator.a.value;
+var WIDTH = document.calculator.b.value;
+var HEIGHT = document.calculator.c.value;
+var Total =(LENGTH*WIDTH*HEIGHT)/271;
+document.calculator.OUTPUT.value = Total;
+}
+// -->
+</script>
+
 
