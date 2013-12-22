@@ -27,7 +27,7 @@ G.F.loadMain = function () {
 
     G.makeGob('bullet2',G.O.viewport)
      .setVar({x:-100, y:-100, w:4, h:12, AI:G.F.bullet2AI})
-     .setState({firing:0,fireDelay:0})
+     .setState({firing:0,fireDelay:3})
      .turnOn();
 
     G.makeGob('explosion',G.O.viewport)
@@ -76,7 +76,7 @@ G.F.mainAI = function () {
         }
         if (G.O.bullet2.checkIntersection(target) ) {
 
-            G.O.bullet2.setState({firing:0, fireDelay:0}).setVar({x:-100,y:-100}).draw();
+            G.O.bullet2.setState({firing:0, fireDelay:3}).setVar({x:-100,y:-100}).draw();
             target.turnOff();
             G.O.explosion.setVar({x: target.x + 6, y:target.y + 8}).AI('reset').turnOn();
             G.S.targetCount--;
